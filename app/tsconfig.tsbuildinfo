@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/a11y.tsx","./src/art.ts","./src/main.tsx","./src/router.ts","./src/state.tsx","./src/ui.tsx","./src/screens/accessibility.tsx","./src/screens/habits.tsx","./src/screens/newhabit.tsx","./src/screens/onboarding.tsx","./src/screens/progress.tsx","./src/screens/settings.tsx","./src/screens/today.tsx"],"version":"5.6.3"}

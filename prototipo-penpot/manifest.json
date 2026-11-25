@@ -1,0 +1,7 @@
+{
+  "name": "MicroRotina · Gerador de protótipo",
+  "description": "Gera as telas navegáveis do MicroRotina (microHabit), Grupo 18 IHC UFABC, com fluxos e interações.",
+  "version": 2,
+  "code": "plugin.js",
+  "permissions": ["content:read", "content:write", "library:read", "library:write"]
+}

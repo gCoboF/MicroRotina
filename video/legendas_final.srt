@@ -1,0 +1,267 @@
+1
+00:00:01,520 --> 00:00:04,940
+Olá, o meu nome é Gabriel e eu faço parte do Grupo 18,
+
+2
+00:00:04,940 --> 00:00:07,620
+junto com Raul, Leticia e Lucas.
+
+3
+00:00:07,620 --> 00:00:12,240
+O nosso projeto é o MicroRotina, um app de micro-hábitos de dois a cinco minutos.
+
+4
+00:00:13,260 --> 00:00:16,640
+A gente sabe como é difícil manter um hábito com uma rotina que está
+
+5
+00:00:16,640 --> 00:00:20,380
+sempre mudando, mas mesmo assim, os apps mais conhecidos cobram aquela
+
+6
+00:00:20,380 --> 00:00:22,060
+constância perfeita.
+
+7
+00:00:22,060 --> 00:00:24,980
+Basta um dia ruim e a sequência zera.
+
+8
+00:00:24,980 --> 00:00:27,120
+E é aí que muita gente desiste.
+
+9
+00:00:28,340 --> 00:00:33,340
+Esta é Ana. Ela estuda, trabalha e já instalou vários apps de hábito.
+
+10
+00:00:33,340 --> 00:00:35,540
+Todos duraram até a primeira semana difícil.
+
+11
+00:00:36,280 --> 00:00:39,980
+Ela quer criar pequenos hábitos, como beber água e ler um pouco,
+
+12
+00:00:39,980 --> 00:00:43,820
+sem cadastro, sem culpa e sem mais uma cobrança no celular.
+
+13
+00:00:44,260 --> 00:00:47,780
+A tarefa dela é criar um hábito e manter a rotina,
+
+14
+00:00:47,780 --> 00:00:49,160
+mesmo nos dias ruins.
+
+15
+00:00:50,380 --> 00:00:53,960
+Ana abre o app e conhece a Nuvi, que vai acompanhá-la.
+
+16
+00:00:53,960 --> 00:00:55,860
+Sem e-mail, sem senha.
+
+17
+00:00:56,760 --> 00:01:00,820
+Antes de tudo, um acordo: os dados ficam no celular,
+
+18
+00:01:00,820 --> 00:01:04,180
+nada vem ligado e, se esquecer um dia, nada zera.
+
+19
+00:01:05,200 --> 00:01:07,050
+Ela só escolhe um apelido.
+
+20
+00:01:07,050 --> 00:01:10,920
+Conta é opcional, só para quem quer os dados salvos na nuvem para usar
+
+21
+00:01:10,920 --> 00:01:12,600
+também em outro aparelho.
+
+22
+00:01:13,620 --> 00:01:16,460
+Aqui ela ajusta texto, contraste e estímulo,
+
+23
+00:01:16,460 --> 00:01:17,900
+ou deixa como está.
+
+24
+00:01:18,800 --> 00:01:21,840
+Agora o primeiro hábito em três passos.
+
+25
+00:01:21,840 --> 00:01:24,820
+O que fazer? Ler uma página.
+
+26
+00:01:25,840 --> 00:01:30,240
+Quando? Depois de almoçar, junto de algo do dia a dia que ela já faz.
+
+27
+00:01:31,140 --> 00:01:32,700
+E se quer lembrete.
+
+28
+00:01:32,700 --> 00:01:35,600
+Nenhuma opção vem marcada: quem decide é ela.
+
+29
+00:01:37,220 --> 00:01:40,360
+Semanas depois, um dia comum.
+
+30
+00:01:40,360 --> 00:01:44,100
+A Nuvi pergunta como está a energia e a meta se ajusta.
+
+31
+00:01:47,800 --> 00:01:49,520
+Esta é a tela Hoje.
+
+32
+00:01:49,520 --> 00:01:51,460
+Quarenta e sete dias praticados.
+
+33
+00:01:51,460 --> 00:01:53,920
+É o total, nunca uma sequência.
+
+34
+00:01:54,420 --> 00:01:57,900
+E são no máximo cinco hábitos para não sobrecarregar.
+
+35
+00:02:02,120 --> 00:02:04,180
+Água vale em partes.
+
+36
+00:02:04,180 --> 00:02:08,600
+Ela registra copo por copo e meio caminho já conta como dia praticado.
+
+37
+00:02:14,020 --> 00:02:16,260
+O retorno é rápido e gentil.
+
+38
+00:02:16,260 --> 00:02:17,580
+Um passo de cada vez.
+
+39
+00:02:17,580 --> 00:02:18,820
+Hoje já conta.
+
+40
+00:02:22,320 --> 00:02:26,300
+Falta só respirar fundo, um toque e pronto.
+
+41
+00:02:26,300 --> 00:02:30,000
+O app silencia os lembretes e diz: Agora o resto do dia é seu.
+
+42
+00:02:31,900 --> 00:02:35,120
+Mas, e quando o dia é ruim?
+
+43
+00:02:36,040 --> 00:02:39,700
+Outra manhã, e a Ana está esgotada.
+
+44
+00:02:40,180 --> 00:02:42,080
+Ela conta isso para o app.
+
+45
+00:02:43,080 --> 00:02:45,680
+Em vez de cobrar,
+
+46
+00:02:46,540 --> 00:02:48,000
+a Nuvi propõe:
+
+47
+00:02:48,420 --> 00:02:50,700
+hoje vamos com calma.
+
+48
+00:02:50,700 --> 00:02:53,220
+Só uma coisa pequena,
+
+49
+00:02:53,780 --> 00:02:57,640
+de um minuto. Os outros hábitos esperam.
+
+50
+00:02:58,760 --> 00:03:01,820
+E se nem isso der,
+
+51
+00:03:01,820 --> 00:03:10,080
+tudo bem. Descansar é uma opção de verdade e também é cuidar de você.
+
+52
+00:03:10,760 --> 00:03:14,940
+Amanhã está tudo lá, do jeito que estava.
+
+53
+00:03:19,160 --> 00:03:22,020
+A privacidade também aparece na tela.
+
+54
+00:03:22,020 --> 00:03:25,860
+A gente mostra que nenhum dado precisa ser enviado para fora do celular.
+
+55
+00:03:25,860 --> 00:03:29,280
+Exportar ou apagar tudo leva dois toques.
+
+56
+00:03:30,900 --> 00:03:34,440
+Aqui não tem aquele passarinho verde te ameaçando para não zerar sua
+
+57
+00:03:34,440 --> 00:03:36,920
+sequência às onze e noventa e nove da noite.
+
+58
+00:03:36,920 --> 00:03:39,980
+A Nuvi cobra, mas não ameaça e nada zera.
+
+59
+00:03:39,980 --> 00:03:42,520
+O progresso só aumenta, sem sequência, sem ranking,
+
+60
+00:03:42,520 --> 00:03:46,380
+sem culpa. É um lugar acolhedor, que não te julga no dia corrido que
+
+61
+00:03:46,380 --> 00:03:48,140
+você perdeu a sequência.
+
+62
+00:03:49,540 --> 00:03:54,350
+Hábitos não se constroem com medo.
+
+63
+00:03:54,350 --> 00:03:59,380
+Se constroem com um passo pequeno,
+
+64
+00:03:59,380 --> 00:04:03,280
+num lugar onde dá vontade de voltar.
+
+65
+00:04:04,240 --> 00:04:07,440
+MicroRotina: esqueceu um dia?
+
+66
+00:04:08,060 --> 00:04:09,240
+Tudo bem,
+
+67
+00:04:09,240 --> 00:04:11,260
+amanhã você continua.
