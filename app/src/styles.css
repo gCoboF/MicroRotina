@@ -53,7 +53,7 @@ html.low-stim *, html.low-stim *::before, html.low-stim *::after { animation: no
 .section { font-size: 0.8rem; font-weight: 700; color: var(--sub); text-transform: uppercase; letter-spacing: 0.04em; margin: 8px 0 8px; }
 
 .icon { flex: none; }
-.icon-btn { width: 48px; height: 48px; border: 0; background: none; border-radius: 24px; display: grid; place-items: center; cursor: pointer; color: var(--ink); }
+.icon-btn { flex: none; width: 48px; height: 48px; border: 0; background: none; border-radius: 24px; display: grid; place-items: center; cursor: pointer; color: var(--ink); }
 .nuvi { display: inline-block; flex: none; }
 .nuvi svg { width: 100%; height: 100%; display: block; }
 .nuvi.float { animation: float 4s ease-in-out infinite; }
@@ -120,7 +120,7 @@ html[data-theme="escuro"] .opt.sel { color: var(--ink); }
   position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; display: flex;
   background: var(--card); border-top: var(--border-w) solid var(--line); padding-bottom: env(safe-area-inset-bottom);
 }
-.tab { flex: 1; min-height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: var(--sub); font-size: 0.8rem; position: relative; }
+.tab { flex: 1 1 0; min-width: 0; letter-spacing: normal; word-spacing: normal; text-align: center; min-height: 64px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; text-decoration: none; color: var(--sub); font-size: clamp(12px, 0.8rem, 17px); position: relative; padding: 4px 2px; }
 .tab.on { color: var(--accent); font-weight: 700; }
 .tab.on::before { content: ""; position: absolute; top: 0; width: 28px; height: 3px; border-radius: 2px; background: var(--accent); }
 

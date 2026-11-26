@@ -47,6 +47,16 @@ Os ajustes ficam em **Ajustes › Acessibilidade** e valem na hora, em todas as 
 | Som ao concluir | Toca um som curto ao concluir um hábito | 7.3 |
 | Vibrar ao concluir | Vibra ao concluir (em celulares que permitem) | 7.3 |
 
+**Perfis prontos.** No topo da tela de Acessibilidade, um toque liga um conjunto de ajustes: Baixa visão, Dislexia, Menos estímulo, Não enxergo a tela e Não ouço. Padrão volta tudo ao normal.
+
+**Opções prontas em todo o app.** Ninguém precisa digitar se não quiser:
+
+- **Nome do hábito:** sugestões de um toque.
+- **Horário:** horários comuns.
+- **Versão de dia difícil:** versões prontas.
+- **Lembrete:** jeitos prontos de avisar (Discreto, Na tela, Sem olhar a tela, Sem som).
+- **Novo hábito:** ideias prontas por tema.
+
 Também valem em todo o app:
 
 - **Alvos de toque:** todos com pelo menos 48 px (MobileDU 6.6).

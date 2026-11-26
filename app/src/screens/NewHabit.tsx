@@ -1,5 +1,5 @@
 // Novo hábito em 3 passos e Ideias prontas.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { newHabit, useStore, type Habit } from '../state';
 import { go, replace } from '../router';
 import { Button, Card, Choice, Field, Icon, List, Nuvi, Screen, Steps, ToggleRow } from '../ui';
@@ -42,8 +42,14 @@ function Step1() {
         </Card>
       ) : (
         <>
-          <Field label="Nome do hábito" value={name} onChange={(v) => set({ name: v })} max={40} autoFocus
-            hint="Algo pequeno, de 2 a 5 minutos. Ex.: Ler 1 página." />
+          <Field label="Nome do hábito" value={name} onChange={(v) => set({ name: v })} max={40}
+            hint="Algo pequeno, de 2 a 5 minutos. Escreva ou toque numa sugestão." />
+          <div className="chips" role="group" aria-label="Sugestões de hábito">
+            {QUICK.map((q) => (
+              <button key={q.name} className="chip" aria-pressed={name === q.name}
+                onClick={() => set({ name: q.name, minutes: q.minutes, parts: q.parts ?? null })}>{q.name}</button>
+            ))}
+          </div>
           <List>
             <ToggleRow title="Dividir em partes" sub="ex.: 1 L de água em copos de 250 ml" on={!!d.parts}
               onChange={(v) => set({ parts: v ? { goal: 1000, step: 250, unit: 'ml' } : null })} />
@@ -63,8 +69,14 @@ function Step1() {
   );
 }
 
+// passos 2 e 3 sem nome (aberto direto pela URL): volta ao passo 1
+function useNeedsName(name?: string) {
+  useEffect(() => { if (!name?.trim()) replace('novo/1'); }, [name]);
+}
+
 function Step2() {
   const { d, set } = useDraft();
+  useNeedsName(d.name);
   const rel = d.rel || 'depois', anchor = d.anchor || 'Almoçar';
   const time = d.time || suggestTime(rel, anchor);
   return (
@@ -78,6 +90,13 @@ function Step2() {
         <Choice legend={rel === 'antes' ? 'Antes de…' : 'Depois de…'} value={anchor}
           onChange={(v) => set({ anchor: v, time: suggestTime(rel, v) })} options={ANCHORS.map((a) => [a, a] as [string, string])} />
       )}
+      {rel === 'hora' && (
+        <div className="chips" role="group" aria-label="Horários comuns">
+          {['07:00', '09:00', '12:00', '15:00', '18:00', '21:00'].map((t) => (
+            <button key={t} className="chip" aria-pressed={time === t} onClick={() => set({ time: t })}>{t}</button>
+          ))}
+        </div>
+      )}
       <Field label={rel === 'hora' ? 'Horário' : 'Horário aproximado'} type="time" value={time} onChange={(v) => set({ time: v })}
         hint={rel === 'hora' ? undefined : whenText({ rel, anchor, time }) + ', sugerimos ' + time + '. Você muda quando quiser.'} />
       <Choice legend="Duração" columns value={d.minutes || 2} onChange={(v) => set({ minutes: v })}
@@ -88,8 +107,11 @@ function Step2() {
 }
 
 function Step3() {
-  const { d, dispatch } = useDraft();
+  const { d: raw, dispatch } = useDraft();
   const { say } = useA11y();
+  useNeedsName(raw.name);
+  const rel = raw.rel || 'depois', anchor = raw.anchor || 'Almoçar';
+  const d = { ...raw, rel, anchor, time: raw.time || suggestTime(rel, anchor), minutes: raw.minutes || 2 };
   const save = (remind: boolean) => {
     const h = newHabit({ ...d, reminder: { on: remind, channels: remind ? ['vibrar', 'tela'] : [] } });
     dispatch({ type: 'habit', habit: h });
@@ -104,7 +126,7 @@ function Step3() {
       <div className="hello-row"><p className="lead">Quase pronto</p><Nuvi mood="wink" size={64} /></div>
       <Card soft>
         <p className="habit-name">{name}</p>
-        <p className="muted small" style={{ margin: 0 }}><Icon name="clock" size={16} /> {whenText({ rel: d.rel || 'depois', anchor: d.anchor || 'Almoçar', time: d.time || '13:30' })} · {d.time} · {d.minutes || 2} min</p>
+        <p className="muted small" style={{ margin: 0 }}><Icon name="clock" size={16} /> {whenText(d)} · {d.time} · {d.minutes} min</p>
       </Card>
       <p className="lead" style={{ fontSize: '1.3rem' }}>Quer um lembrete?</p>
       <p className="muted">Você decide. Nenhuma opção vem marcada.</p>
@@ -112,7 +134,7 @@ function Step3() {
         <figcaption className="muted small">Assim ele vai aparecer</figcaption>
         <div className="card notif-card">
           <span className="app-ic"><NuviMini /></span>
-          <div><b>MicroRotina</b> <span className="muted small">{d.time}</span><br />Hora de {name.charAt(0).toLowerCase() + name.slice(1)}. Leva {d.minutes || 2} min, sem pressa.</div>
+          <div><b>MicroRotina</b> <span className="muted small">{d.time}</span><br />Hora de {name.charAt(0).toLowerCase() + name.slice(1)}. Leva {d.minutes} min, sem pressa.</div>
         </div>
       </figure>
       <div className="push">
@@ -123,6 +145,13 @@ function Step3() {
     </Screen>
   );
 }
+
+// sugestões de um toque no passo 1
+const QUICK: { name: string; minutes: number; parts?: Habit['parts'] }[] = [
+  { name: 'Ler 1 página', minutes: 3 }, { name: 'Beber água', minutes: 1, parts: { goal: 1000, step: 250, unit: 'ml' } },
+  { name: 'Alongar o corpo', minutes: 2 }, { name: 'Respirar fundo 5 vezes', minutes: 1 },
+  { name: 'Arrumar a cama', minutes: 2 }, { name: 'Caminhar 5 minutos', minutes: 5 }
+];
 
 const NuviMini = () => <span style={{ display: 'inline-block', width: 28, height: 28 }} aria-hidden="true"><Nuvi mood="happy" size={28} /></span>;
 

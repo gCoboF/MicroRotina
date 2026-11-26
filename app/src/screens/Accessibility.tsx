@@ -1,8 +1,17 @@
 // Acessibilidade (MobileDU 1.1–1.5, 1.7, 1.10, 2.1–2.6, 3.4–3.6, 7.3): cada opção muda o app na hora.
-import { useStore, type Settings } from '../state';
+import { DEFAULT_SETTINGS, useStore, type Settings } from '../state';
 import { FILTERS, useA11y } from '../a11y';
 import { go } from '../router';
 import { Button, Choice, List, Screen, ToggleRow } from '../ui';
+
+const PROFILES: [string, Partial<Settings>][] = [
+  ['Padrão', { textSize: 'normal', easyFont: false, bold: false, wideSpacing: false, highContrast: false, theme: 'claro', invert: false, dimWhite: false, colorFilter: 'nenhum', lowStimulus: false, noTimeouts: false, speak: false, soundOnDone: false, vibrateOnDone: false }],
+  ['Baixa visão', { textSize: 'maior', highContrast: true, bold: true }],
+  ['Dislexia', { textSize: 'grande', easyFont: true, wideSpacing: true }],
+  ['Menos estímulo', { lowStimulus: true, dimWhite: true, theme: 'creme' }],
+  ['Não enxergo a tela', { speak: true, noTimeouts: true, soundOnDone: true, vibrateOnDone: true }],
+  ['Não ouço', { vibrateOnDone: true, noTimeouts: true }]
+];
 
 export function Accessibility({ onboarding }: { onboarding: boolean }) {
   const { s, dispatch } = useStore();
@@ -12,6 +21,22 @@ export function Accessibility({ onboarding }: { onboarding: boolean }) {
   return (
     <Screen title={onboarding ? 'Como fica melhor para você?' : 'Acessibilidade'} back fallback={onboarding ? 'perfil-inicio' : 'ajustes'}>
       <p className="muted">{onboarding ? 'Tudo opcional. Dá para mudar depois, em Ajustes.' : 'Ajuste o app do seu jeito. As mudanças valem na hora.'}</p>
+
+      <h2 className="section">Perfis prontos</h2>
+      <p className="muted small" style={{ margin: 0 }}>Um toque liga um conjunto de ajustes. Dá para combinar e ajustar depois.</p>
+      <div className="chips" role="group" aria-label="Perfis prontos de acessibilidade">
+        {PROFILES.map(([label, patch]) => {
+          const on = Object.entries(patch).every(([k, v]) => st[k as keyof Settings] === v);
+          return (
+            <button key={label} className="chip" aria-pressed={on}
+              onClick={() => {
+                const next = label === 'Padrão' ? { ...DEFAULT_SETTINGS, voice: st.voice, rate: st.rate } : patch;
+                set(next);
+                if ((next as Partial<Settings>).speak) speakNow('Pronto. Vou ler as mensagens em voz.');
+              }}>{label}</button>
+          );
+        })}
+      </div>
 
       <h2 className="section">Texto</h2>
       <Choice legend="Tamanho do texto" columns value={st.textSize} onChange={(v) => set({ textSize: v })}

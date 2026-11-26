@@ -20,6 +20,9 @@ export default function App() {
   }, []);
 
   if (s.pin && s.onboarded && !unlocked) return <Lock />;
+  // antes do primeiro uso, só as telas de começo ficam abertas
+  const START = ['combinados', 'perfil-inicio', 'pin', 'acessibilidade-inicio', 'novo', 'ideias', 'transparencia', 'sync', 'sync-ligado'];
+  if (!s.onboarded && r0 && !START.includes(r0)) return <Welcome />;
 
   switch (r0) {
     case undefined:

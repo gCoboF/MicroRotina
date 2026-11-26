@@ -65,7 +65,7 @@ export function HabitDetail({ id }: { id: string }) {
         <button className="row" onClick={() => go('lembrete/' + h.id)}>
           <Icon name="bell" />
           <span className="row-text"><span className="row-title">Lembrete</span>
-            <span className="row-sub">{h.reminder.on ? h.time + ' · ' + (h.reminder.channels.join(', ') || 'sem canal') : 'Desligado'}</span></span>
+            <span className="row-sub">{h.reminder.on ? h.time + ' · ' + (h.reminder.channels.map((c) => CH_NAME[c]).join(', ') || 'sem canal') : 'Desligado'}</span></span>
           <Icon name="chevron" size={20} />
         </button>
       </List>
@@ -73,7 +73,12 @@ export function HabitDetail({ id }: { id: string }) {
         <div><dt>Quando</dt><dd>{whenText(h)} · {h.time}</dd></div>
         <div><dt>Duração</dt><dd>{h.minutes} {h.minutes === 1 ? 'minuto' : 'minutos'}</dd></div>
       </dl>
-      <Field label="Versão de dia difícil" value={h.easyVersion} onChange={(v) => save({ easyVersion: v })} max={40} hint="Uma versão menor para dias sem energia." />
+      <Field label="Versão de dia difícil" value={h.easyVersion} onChange={(v) => save({ easyVersion: v })} max={40} hint="Uma versão menor para dias sem energia. Escreva ou escolha." />
+      <div className="chips" role="group" aria-label="Sugestões de versão de dia difícil">
+        {['Fazer só 1 minuto', 'Só começar', 'Fazer a metade', 'Só preparar para amanhã'].map((t) => (
+          <button key={t} className="chip" aria-pressed={h.easyVersion === t} onClick={() => save({ easyVersion: t })}>{t}</button>
+        ))}
+      </div>
       <List>
         <ToggleRow icon="star" title="Essencial" sub="aparece mesmo em dia cansado" on={h.essential} onChange={(v) => save({ essential: v })} />
       </List>
@@ -110,6 +115,10 @@ export function DeleteHabit({ id }: { id: string }) {
   );
 }
 
+const CH_NAME: Record<Channel, string> = { vibrar: 'vibração', tela: 'aviso na tela', som: 'som', voz: 'voz', flash: 'flash' };
+const PRESETS: [string, Channel[]][] = [
+  ['Discreto', ['vibrar']], ['Na tela', ['tela', 'vibrar']], ['Sem olhar a tela', ['voz', 'som', 'vibrar']], ['Sem som', ['flash', 'tela', 'vibrar']]
+];
 const CHANNELS: [Channel, string][] = [['vibrar', 'Vibração'], ['tela', 'Aviso na tela'], ['som', 'Som suave'], ['voz', 'Leitura em voz'], ['flash', 'Piscar a tela (flash)']];
 
 export function Reminder({ id }: { id: string }) {
@@ -129,6 +138,15 @@ export function Reminder({ id }: { id: string }) {
         <ToggleRow icon="bell" title="Lembrete" sub="desligar leva 1 toque" on={h.reminder.on} onChange={(v) => save({ reminder: { ...h.reminder, on: v } })} />
       </List>
       <Field label="Horário" type="time" value={h.time} onChange={(v) => save({ time: v })} />
+      <fieldset className="choice" disabled={!h.reminder.on}>
+        <legend>Jeitos prontos de avisar</legend>
+        <div className="chips">
+          {PRESETS.map(([label, ch]) => {
+            const on = ch.length === h.reminder.channels.length && ch.every((c) => h.reminder.channels.includes(c));
+            return <button key={label} className="chip" aria-pressed={on} onClick={() => save({ reminder: { ...h.reminder, channels: ch } })}>{label}</button>;
+          })}
+        </div>
+      </fieldset>
       <fieldset className="choice" disabled={!h.reminder.on}>
         <legend>Como avisar (pode marcar mais de um)</legend>
         {CHANNELS.map(([c, label]) => (
